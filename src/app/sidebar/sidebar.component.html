@@ -1,0 +1,18 @@
+<div style="background-color: whitesmoke;">
+    <h2>Freinds</h2>
+        <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+            <input type="text" class="form-control" placeholder="Search" [(ngModel)]="search"/>
+        </div>
+        <hr>
+
+        <div class="row" style="margin-left: 5%;" *ngFor="let item of data | searchBy:search">
+            <span style="cursor: pointer;" (click)="test(item)">{{item.first_name + item.last_name}}</span>
+            <span><i (click)="item.favorite = !item.favorite" [ngClass]="item.favorite ? 'glyphicon glyphicon-star' : 'glyphicon glyphicon-star-empty'"></i></span>
+            <hr>
+        </div>
+
+        <div style="text-align: end;">
+            <i style="font-size: 45px;" class="glyphicon glyphicon-plus" (click)="navigateToCreate()"></i>
+        </div>
+</div>
